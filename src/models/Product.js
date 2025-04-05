@@ -18,6 +18,10 @@ const productSchema = new mongoose.Schema({
         default: 0,
     },
     images: [String],
+    createdBy:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+    }
 }, { timestamps: true });
 
 module.exports = mongoose.model('Product', productSchema);
