@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
 // Import Routes
 app.use("/api/product", require("./routes/productRoutes"));
 app.use("/api/auth", require("./routes/authRoutes"));
+app.use('/api/cart-items', require('./routes/cartItemRoutes'));
 
 
 // run the server
