@@ -1,10 +1,10 @@
-// src/app.js
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const database = require('./config/database');
-database // Initialize the database connection
+database
 const app = express();
+const PORT = process.env.PORT || 5000;
 
 // Middlewares
 app.use(cors());
@@ -17,3 +17,11 @@ app.get('/', (req, res) => {
 });
 
 
+// Import Routes
+app.use("/api/product", require("./routes/productRoutes"));
+
+
+// run the server
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
